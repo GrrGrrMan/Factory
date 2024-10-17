@@ -1,0 +1,64 @@
+local tokenfolder1 = game:GetService("Workspace").Collectibles
+local AutoClaimToys1 = true
+local AutoTokenPriority1 = true
+local TokenDecalAssetId1 = {
+    "rbxassetid://6134473023", -- GiftedMythicIcon
+    "rbxassetid://8310376128", -- TurpentineIcon
+    "http://www.roblox.com/asset/?id=4520739302", -- MythicIcon
+    "rbxassetid://2028603146", -- StarTreatIcon
+    "rbxassetid://1987257040", -- GiftedDiamondIcon
+    "http://www.roblox.com/asset/?id=5144657109", -- SuperSmoothieIcon
+    "rbxassetid://1987255318", -- GiftedGoldIcon
+    "rbxassetid://1471850677", -- BearEggIcon / DiamondIcon
+    "rbxassetid://8277783113", -- SwirledWaxIcon
+    "rbxassetid://8277781666", -- CausticWaxIcon
+    "rbxassetid://8055428094", -- LoadedDiceIcon
+    "rbxassetid://6077173317", -- AgedGingerbreadBearIcon / GingerbreadBearIcon
+    "rbxassetid://8054996680", -- SmoothDiceIcon
+    "rbxassetid://15460486642", -- DiamondCluster (Sticker) not listed.
+    "rbxassetid://2319943273", -- StarJellyIcon
+    "rbxassetid://2542899798", -- GlitterIcon
+    "http://www.roblox.com/asset/?id=4935580111", -- PurplePotionIcon
+    "http://www.roblox.com/asset/?id=3835877932", -- TropicalDrinkIcon
+    "rbxassetid://2529092020", -- MagicBeanIcon
+    "http://www.roblox.com/asset/?id=4483267595", -- NeonberryIcon
+    "rbxassetid://2495936060", -- BlueExtractIcon
+    "rbxassetid://2495935291", -- RedExtractIcon
+    "rbxassetid://2504978518", -- GlueIcon
+    "rbxassetid://2545746569", -- OilIcon
+    "rbxassetid://2584584968", -- EnzymesIcon
+    "rbxassetid://2863468407", -- FieldDiceIcon
+    "http://www.roblox.com/asset/?id=4483236276", -- BitterberryIcon
+}
+
+while task.wait(1) do -- check every 0.1 seconds
+local detectedTokens4 = false
+    for _, v in pairs(tokenfolder1:GetChildren()) do
+        local decal1 = v:FindFirstChildOfClass("Decal")
+        if decal1 and v.Transparency == 0 and table.find(TokenDecalAssetId1, decal1.Texture) then
+            detectedTokens4 = true
+            break
+        end
+    end
+
+    -- Fluent.Options toggling logic
+    if detectedTokens4 == true or detectedAphid then
+        task.wait(1)
+        Fluent.Options.BEEMASGIF3:SetValue(false)
+        Fluent.Options.HARPLANT:SetValue(false)
+        Fluent.Options.PLP:SetValue(false)
+        Fluent.Options.VIC:SetValue(false)
+        Fluent.Options.WINDY:SetValue(false)
+        Fluent.Options.MONDO:SetValue(false)
+        Fluent.Options.AUTOMOB:SetValue(false)
+    else
+        task.wait(1)
+        Fluent.Options.BEEMASGIF3:SetValue(true)
+        Fluent.Options.HARPLANT:SetValue(true)
+        Fluent.Options.PLP:SetValue(true)
+        Fluent.Options.VIC:SetValue(true)
+        Fluent.Options.WINDY:SetValue(true)
+        Fluent.Options.MONDO:SetValue(true)
+        Fluent.Options.AUTOMOB:SetValue(true)
+    end
+end
